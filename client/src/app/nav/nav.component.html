@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Travel App</a>
+      <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Disabled</a>
+        </li>
+      </ul>
+
+      <div class="dropdown ml-1" *ngIf="accountService.currentUser$ | async" dropdown>
+        <a class="dropdown-toggle text-light" dropdownToggle>Welcome user</a>
+        <div class="dropdown-menu mt-ml-3" *dropdownMenu>
+          <a class="dropdown-item ml-1">Edit Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item ml-1" (click)="logout()">Logout</a>
+        </div>
+      </div>
+
+
+      <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+        <input
+            name="username"
+            [(ngModel)]="model.username"
+            class="form-control me-2"
+            type="text"
+            placeholder="Username">
+        <input
+            name="password"
+            [(ngModel)]="model.password"
+            class="form-control me-2"
+            type="password"
+            placeholder="Password">
+        <button class="btn btn-outline-success" type="submit">Login</button>
+      </form>
+    </div>
+</nav>
