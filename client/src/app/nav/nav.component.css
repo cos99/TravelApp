@@ -1,3 +1,9 @@
 .dropdown a:hover {
   cursor: pointer;
 }
+
+img {
+  max-height: 50px;
+  border: 1px solid #fff;
+  display: inline;
+}
