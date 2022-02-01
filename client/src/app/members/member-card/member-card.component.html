@@ -8,7 +8,7 @@
         </button>
       </li>
       <li class="list-inline-item">
-        <button class="bnt btn-primary">
+        <button class="bnt btn-primary" (click)="addAdd(member)">
           <i class="fa fa-plus"></i>
         </button>
       </li>
@@ -20,11 +20,11 @@
     </ul>
   </div>
   <div class="card-body p-1">
-    <h5 class="card-title text-center mb-1"><i class="fa fa-user mr-2"></i>
+    <h6 class="card-title text-center mb-1"><i class="fa fa-user mr-2"></i>
     {{member.alias}}, {{member.age}},
     <br>
     {{member.lookingFor}}
-    </h5>
+    </h6>
     <p class="card-text text-muted text-">{{member.country}}</p>
   </div>
 </div>

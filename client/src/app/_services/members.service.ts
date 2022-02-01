@@ -103,4 +103,15 @@ export class MembersService {
   deletePhoto(photoId: number){
     return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
   }
+
+  addAdd(username: string){
+    return this.http.post(this.baseUrl + 'added/' + username, {});
+
+  }
+
+  getAdded(predicate: string, pageNumber, pageSize) {
+    let params = this.getPaginationHeaders(pageNumber, pageSize);
+    params = params.append('predicate', predicate);
+    return this.getPaginatedResult<Partial<Member[]>>(this.baseUrl + 'added', params);
+  }
 }
